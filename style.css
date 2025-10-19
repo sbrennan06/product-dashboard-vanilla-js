@@ -1,0 +1,22 @@
+body {
+    font-family: Arial, sans-serif; margin: 40px;
+}
+h1, h2 {
+    color: #006747;
+}
+
+.user-card, .product-card {
+    border: 1.5px solid #ccc; border-radius: 8px; padding: 10px;
+    transition: transform .25s, box-shadow .25s;
+}
+
+.user-card:hover, .product-card:hover {
+ transform: scale(1.03);
+ box-shadow: 0 6px 12px rgba(0,0,0,0.15);   
+}
+
+#product-container, #report, #inventory {
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
+    gap: 12px;
+}
