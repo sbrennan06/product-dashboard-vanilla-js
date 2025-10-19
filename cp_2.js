@@ -33,7 +33,7 @@ async function fetchProductsAsync() {
     }    
     // Call handleError(error) if the fetch fails
     catch (error) {
-        console.error('An error has occurred:', error?.message ?? error);
+        handleError(error);
     }
 }
 
@@ -86,7 +86,15 @@ function displayProducts(products) {
         container.innerHTML = '<p>No products available.</p>';
     }
 }
+// Step 6: Add a reusable handleError(error) function:
+// Log a clear message like An error occurred: <message>
+
+function handleError(error) {
+    console.error(`An error has occurred: ${error?.message ?? error}`);
+}
 
 
-fetchProductsThen();
+
+//Step 7
+fetchProductsThen(); //moved down from prior step to avoid duplicate
 fetchProductsAsync();
