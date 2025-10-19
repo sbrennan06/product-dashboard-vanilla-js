@@ -8,6 +8,7 @@ h1, h2 {
 .user-card, .product-card {
     border: 1.5px solid #ccc; border-radius: 8px; padding: 10px;
     transition: transform .25s, box-shadow .25s;
+    background: #fff;
 }
 
 .user-card:hover, .product-card:hover {
@@ -19,4 +20,14 @@ h1, h2 {
     display: grid;
     grid-template-columns: repeat(auto-fill,minmax(220px,1fr));
     gap: 12px;
+    align-items: start;
+}
+
+.product-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+    border-radius: 8px;
+    display: block;
+    margin-bottom: 8px;
 }
