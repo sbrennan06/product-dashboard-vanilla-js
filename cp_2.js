@@ -93,8 +93,6 @@ function handleError(error) {
     console.error(`An error has occurred: ${error?.message ?? error}`);
 }
 
-
-
-//Step 7
+//Step 7: call both fetch functions
 fetchProductsThen(); //moved down from prior step to avoid duplicate
 fetchProductsAsync();
