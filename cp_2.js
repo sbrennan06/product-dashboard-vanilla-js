@@ -17,7 +17,7 @@ function fetchProductsThen() {
             err?.message ?? '');
     });
 }
-fetchProductsThen();
+
 
 // Step 4: Create a function fetchProductsAsync():
 // Use async/await and try/catch to retrieve product data
@@ -40,13 +40,53 @@ async function fetchProductsAsync() {
 // Step 5: Write displayProducts(products):
 // Select the #product-container element
 
+function displayProducts(products) {
+    const container = document.getElementById('product-container');
+    if (!container) {
+        console.error('An error has occurred:', '#product-container not found');
+        return;
+    }
+    container.innerHTML = '';
 
-// Loop through the first 5 products returned by the API
-// Create and append HTML elements to show each product’s name, image, and price
+    // Loop through the first 5 products returned by the API
+
+    const firstFive = Array.isArray(products) ? products.slice(0, 5) : [];
+    firstFive.forEach((item, i) => {
+        const name = item?.fields?.name ?? item?.name ?? `Product ${i +1}`;
+        const priceCents = item?.fields?.price ?? item?.price ?? 0;
+        const price = (Number(priceCents)/100).toFixed(2);
+        console.log('Rendering product ${i + 1}');
+
+        // Create and append HTML elements to show each product’s name, image, and price
+
+        const imgObj = item?.fields?.image?.[0];
+        const imgSrc = 
+        imgObj?.thumbnails?.large?.url ??
+        imgObj?.url ?? 'https://via.placeholder.com/320x200?text=No+Image';
+
+        const card = document.createElement('article');
+        card.className = 'product-card';
+
+        const img = document.createElement('img');
+        img.src = imgSrc;
+        img.alt = name;
+
+        const title = document.createElement('h3');
+        title.className = 'product-name';
+        title.textContent = name;
+
+        const priceEl = document.createElement('p');
+        priceEl.className = 'product-price';
+        priceEl.textContent = `$${price}`;
+
+        card.append(img, title, priceEl);
+        container.appendChild(card);
+    });
+    if (firstFive.length === 0) {
+        container.innerHTML = '<p>No products available.</p>';
+    }
+}
 
 
-
-
-
-
-    
+fetchProductsThen();
+fetchProductsAsync();
