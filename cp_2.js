@@ -55,7 +55,7 @@ function displayProducts(products) {
         const name = item?.fields?.name ?? item?.name ?? `Product ${i +1}`;
         const priceCents = item?.fields?.price ?? item?.price ?? 0;
         const price = (Number(priceCents)/100).toFixed(2);
-        console.log('Rendering product ${i + 1}');
+        console.log(`Rendering product ${i + 1}`);
 
         // Create and append HTML elements to show each product’s name, image, and price
 
