@@ -14,7 +14,7 @@ function fetchProductsThen() {
     // Use .catch() to log any fetch errors
 
     .catch((err) => {
-    console.error(`An error has occured: ${err?.message ?? err}`);
+    console.error(`An error has occurred: ${err?.message ?? err}`);
 });
 }
 
