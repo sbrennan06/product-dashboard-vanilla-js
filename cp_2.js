@@ -9,13 +9,20 @@ function fetchProductsThen() {
             const name = item?.fields?.name ?? item?.name ?? `(no name @ ${i})`;
             // Log each product’s name to the console
             console.log(`[then] product ${i + 1}: ${name}`);
-        })
+        });
     })
     // Use .catch() to log any fetch errors
+
     .catch((err) => {
-        console.error('[then] fetch error: could not load products');        
-        }
-     )};
+    console.error(`An error has occured: ${err?.message ?? err}`);
+});
+}
+
+
+    // .catch((err) => {
+    //     console.error('[then] fetch error: could not load products');        
+    //     }
+    //  )};
 
 
 // Step 4: Create a function fetchProductsAsync():
