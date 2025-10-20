@@ -13,10 +13,9 @@ function fetchProductsThen() {
     })
     // Use .catch() to log any fetch errors
     .catch((err) => {
-        console.error('[then] fetch error: could not load products',
-            err?.message ?? '');
-    });
-}
+        console.error('[then] fetch error: could not load products');        
+        }
+     )};
 
 
 // Step 4: Create a function fetchProductsAsync():
